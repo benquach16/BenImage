@@ -200,6 +200,8 @@ void CWindow::DisplayFile()
                 }
             }
             label->setPixmap(pix);
+
+            delete p;
         }
     }
 }
