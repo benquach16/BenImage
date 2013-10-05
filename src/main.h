@@ -21,12 +21,16 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <sstream>
+#include <string>
+
 #include "QApplication"
 #include "QMainWindow"
 #include "QMenu"
 #include "QMenuBar"
 
 #include "window.h"
+#include "windows.h"
 
 class CImageViewer
 {

@@ -23,6 +23,7 @@
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     CImageViewer *imageloader = new CImageViewer(argc,argv);
+    return 0;
 }
 
 
@@ -31,6 +32,16 @@ CImageViewer::CImageViewer(int argc, char *argv[])
 {
     QApplication a(argc,argv);
     CWindow *window = new CWindow();
+
+
+    if(argc > 1 )
+    {
+        stringstream iss(argv[1]);
+        string filename;
+        iss >> filename;
+        window->OpenedWithFile(filename);
+    }
+
     window->show();
 
 

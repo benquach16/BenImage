@@ -27,6 +27,7 @@
 #include "vector"
 #include "sstream"
 #include "string"
+#include "list"
 
 #include "QApplication"
 #include "QMenuBar"
@@ -52,6 +53,28 @@
 
 using namespace std;
 
+struct benHeaderFile
+{
+    char type;
+    unsigned byteSize;
+};
+
+struct benHeaderInfo
+{
+    unsigned byteSize;
+    unsigned height;
+    unsigned width;
+};
+
+struct colorStruct
+{
+    unsigned char r,g,b;
+    colorStruct(unsigned char r, unsigned char g, unsigned char b) : r(r), g(g), b(b)
+    {
+
+    }
+};
+
 class CWindow : public QMainWindow
 {
     //define qobject
@@ -65,9 +88,16 @@ public:
 
     //conversions
     //convertToRGB: takes a string RRGGBB and converts it into a QColor
-    QColor convertToRGB(string hex);
+    QColor convertToRGB(const string& hex);
     //convertToHex: legacy
-    string convertToHex(QColor color);
+    string convertToHex(const QColor& color);
+    unsigned char convertToHex(int r, int g, int b);
+    //convert qcolor to a char array
+    char getCharFromColor(const QColor &color);
+
+    //if opened with windows thing
+    void OpenedWithFile(const std::string &file);
+    void DisplayFile();
 
     QString OpenedFile;
     QLabel *label;
